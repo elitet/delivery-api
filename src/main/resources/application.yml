@@ -1,0 +1,27 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://db:5432/delivery
+    username: postgres
+    password: docker
+    driver-class-name: org.postgresql.Driver
+  flyway:
+    url: jdbc:postgresql://db:5432/delivery
+    user: postgres
+    password: docker
+    locations: classpath:db/migration
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+
+# Configuracao do Hibernate
+spring.jpa:
+  database-platform: org.hibernate.dialect.PostgreSQLDialect
+  hibernate:
+    ddl-auto: update
+
+# Configuracao JWT
+jwt:
+  secret: delivery
+  expiration: 86400000
+
